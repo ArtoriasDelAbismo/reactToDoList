@@ -1,0 +1,15 @@
+.todoButton {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.button {
+    width: 327px;
+    height: 43px;
+    background-color: #61DAFA;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+
+}

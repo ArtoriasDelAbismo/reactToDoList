@@ -1,0 +1,11 @@
+* {
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+    background: #F2F4F5;
+    font-family: 'League Spartan', sans-serif;
+
+}
