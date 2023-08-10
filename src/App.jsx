@@ -10,21 +10,32 @@ const defaultTodos = [
     text: "Conseguir placa de desarrollo para armar estacion terrestre",
     completed: false,
   },
-  { text: "Comprar pava electrica", completed: false },
-  { text: "Comprar pizarra", completed: false },
+  { text: "Comprar pava electrica", completed: true },
+  { text: "Comprar pizarra", completed: true },
   { text: "Apoya pies para silla de pc", completed: false },
+
 ];
 
 function App() {
-  const [searchValue, setSearchValue] = React.useState('');
+  const [searchValue, setSearchValue] = React.useState("");
+  const [todos, setTodos] = React.useState(defaultTodos);
+
+  const completedTodos = todos.filter((todos) => !!todos.completed).length;
+  const totalTodos = todos.length;
+
+  const searchedTodos = todos.filter((todo) => {
+    return(
+      todo.text.toLowerCase().includes(searchValue.toLocaleLowerCase())
+    )
+  })
 
   return (
     <>
-      <TodoCounter completed={0} totalTodos={4} />
-      <TodoSearch searchValue={searchValue} setSearchValue={setSearchValue}/>
+      <TodoCounter completed={completedTodos} totalTodos={totalTodos} />
+      <TodoSearch searchValue={searchValue} setSearchValue={setSearchValue} />
 
       <TodoList>
-        {defaultTodos.map((todo) => (
+        {searchedTodos.map((todo) => (
           <TodoItem
             key={todo.text}
             text={todo.text}
