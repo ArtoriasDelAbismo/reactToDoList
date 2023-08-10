@@ -15,24 +15,35 @@
     display: flex;
 }
 
-.list-items p {
+.todoItem-p {
     text-align: center;
     width: inherit;
     vertical-align: middle;
     display: table-cell;
     padding: 0 26px 0 5px;
+    text-decoration: none;
+}
+
+.todoItem-p--completed {
+    text-decoration: line-through;
 }
 
 
-.list-items .check-sign {
+.list-items .icon {
     display: flex;
     width: 34px;
     height: 34px;
     margin: 30px 0 0 4px;
-    background-image: url(../assets/check.svg);
+    cursor: pointer;
+    border: 2px solid #adadad;
+    border-radius: 4px;
+
+}
+
+.icon-check--completed {
+    background-image: url(../assets/Check.png);
     background-repeat: no-repeat;
     background-position: center;
-
 }
 
 .list-items .close-sign {
@@ -40,6 +51,7 @@
     position: absolute;
     width: 34px;
     height: 34px;
+    cursor: pointer;
     background-image: url(../assets/close.svg);
     background-repeat: no-repeat;
     background-position: center;

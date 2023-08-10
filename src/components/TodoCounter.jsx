@@ -2,7 +2,8 @@ import '../styles/TodoCounter.css'
 
 
 function TodoCounter(props) {
-  const total = props.total;
+
+  const total = props.totalTodos;
   const completed = props.completed;
 
   return (

@@ -1,11 +1,16 @@
-import '../styles/TodoButton.css'
+import "../styles/TodoButton.css";
 
-function TodoButton (){
-    return(
-        <div className="todoButton">
-            <button className="button">+</button>
-        </div>
-    )
+function TodoButton() {
+  return (
+    <div className="todoButton">
+      <button
+        onClick={(event) => {
+            console.log(event)
+        }}
+        className="button"
+      ></button>
+    </div>
+  );
 }
 
-export {TodoButton}
+export { TodoButton };

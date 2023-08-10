@@ -8,8 +8,11 @@
     width: 327px;
     height: 43px;
     background-color: #61DAFA;
+    position: fixed;
     border: none;
     border-radius: 8px;
     cursor: pointer;
-
+    background-image: url(../assets/plus.svg);
+    background-position: center;
+    background-repeat: no-repeat;
 }
