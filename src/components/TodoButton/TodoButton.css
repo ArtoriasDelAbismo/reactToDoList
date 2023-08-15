@@ -12,7 +12,7 @@
     border: none;
     border-radius: 8px;
     cursor: pointer;
-    background-image: url(../assets/plus.svg);
+    background-image: url('/src/assets/plus.svg');
     background-position: center;
     background-repeat: no-repeat;
 }
