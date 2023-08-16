@@ -27,7 +27,7 @@ localStorage.setItem('LISTA01', defaultTodos);
 export default function App() {
   
   const [searchValue, setSearchValue] = React.useState("");
-  const [todos, saveTodos] = useLocalStorage('LISTA01', []);
+  const {item: todos, saveItem: saveTodos, loading, error} = useLocalStorage('LISTA01', []);
 
   const completedTodos = todos.filter((todos) => !!todos.completed).length;
   const totalTodos = todos.length;
@@ -49,12 +49,17 @@ export default function App() {
     newTodos.splice(todoIndex, 1);
     saveTodos(newTodos);
   };
+
   return (
     <>
       <TodoCounter completed={completedTodos} totalTodos={totalTodos} />
       <TodoSearch searchValue={searchValue} setSearchValue={setSearchValue} />
 
-      <TodoList>
+      <TodoList loading={loading} error= {error}>
+        {loading && <p>Cargando...</p>}
+        {error && <p>Error!</p>}
+        {!loading && searchedTodos.length === 0 && <p>Crea tu primer task</p>}
+
         {searchedTodos.map((todo) => (
           <TodoItem
             key={todo.text}
