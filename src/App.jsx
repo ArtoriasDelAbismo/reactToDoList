@@ -5,24 +5,9 @@ import { TodoList } from "./components/TodoList";
 import { TodoButton } from "./components/TodoButton";
 import { useLocalStorage } from "./hooks/LocalStorage";
 import React from "react";
-
-/*const defaultTodos = [
-  {
-    text: "Conseguir placa de desarrollo para armar estacion terrestre",
-    completed: false,
-  },
-  { text: "Comprar pava electrica", completed: false },
-  { text: "Comprar pizarra", completed: false },
-  { text: "Apoya pies para silla de pc", completed: false },
-
-];
-localStorage.setItem('LISTA01', defaultTodos);
-*/
-
-//
-// localStorage.removeItem('TASKLIST_01');
-
-
+import { TodoLoading } from "./components/TodoLoading";
+import { TodoError } from "./components/TodoError";
+import { TodoEmpty } from "./components/TodoEmpty";
 
 export default function App() {
   
@@ -56,9 +41,9 @@ export default function App() {
       <TodoSearch searchValue={searchValue} setSearchValue={setSearchValue} />
 
       <TodoList loading={loading} error= {error}>
-        {loading && <p>Cargando...</p>}
-        {error && <p>Error!</p>}
-        {!loading && searchedTodos.length === 0 && <p>Crea tu primer task</p>}
+        {loading && <TodoLoading />}
+        {error && <TodoError />}
+        {!loading && searchedTodos.length === 0 && <TodoEmpty />}
 
         {searchedTodos.map((todo) => (
           <TodoItem
@@ -71,7 +56,7 @@ export default function App() {
         ))}
       </TodoList>
 
-      <TodoButton />
+      {!loading && <TodoButton />}
     </>
   );
 }
