@@ -1,11 +1,13 @@
-import './TodoButton.css';
+import "./TodoButton.css";
+import React from "react";
 
-function TodoButton() {
+function TodoButton({ openModal, setOpenModal }) {
   return (
     <div className="todoButton">
       <button
         onClick={(event) => {
-            console.log(event)
+          console.log(event);
+          setOpenModal(!openModal);
         }}
         className="button"
       ></button>
