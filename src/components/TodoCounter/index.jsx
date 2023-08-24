@@ -10,7 +10,7 @@ function TodoCounter(props) {
     <div className="title">
       <h1>Task Manager</h1>
       <h2>
-        Tareas completadas: {completed} de {total}
+        Completed: {completed} de {total}
       </h2>
     </div>
   );

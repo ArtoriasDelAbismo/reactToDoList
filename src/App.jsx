@@ -9,6 +9,7 @@ import { TodoLoading } from "./components/TodoLoading";
 import { TodoError } from "./components/TodoError";
 import { TodoEmpty } from "./components/TodoEmpty";
 import { Modal } from "./components/Modal/Modal";
+import { TodoForm } from "./components/TodoForm"
 
 export default function App() {
   const [searchValue, setSearchValue] = React.useState("");
@@ -20,6 +21,7 @@ export default function App() {
   } = useLocalStorage("LISTA01", []);
 
   const [openModal, setOpenModal] = React.useState(false)
+  const [newTodoValue, setNewTodoValue] = React.useState("");
 
 
   const completedTodos = todos.filter((todos) => !!todos.completed).length;
@@ -43,6 +45,15 @@ export default function App() {
     saveTodos(newTodos);
   };
 
+  const addTodo = (text) => {
+    const newTodos = [...todos]
+    newTodos.push({
+      text,
+      completed: false
+    })
+    saveTodos(newTodos)
+  }
+
   return (
     <>
       <TodoCounter completed={completedTodos} totalTodos={totalTodos} />
@@ -52,6 +63,7 @@ export default function App() {
         {loading && <TodoLoading />}
         {error && <TodoError />}
         {!loading && searchedTodos.length === 0 && <TodoEmpty />}
+
 
         {searchedTodos.map((todo) => (
           <TodoItem
@@ -66,7 +78,10 @@ export default function App() {
 
       {!loading && <TodoButton openModal={openModal} setOpenModal={setOpenModal}/>}
 
-      {openModal && (<Modal  >portaaaal</Modal>)}
+      {openModal && (
+      <Modal  >
+        <TodoForm addTodo={addTodo} newTodoValue={newTodoValue} setNewTodoValue={setNewTodoValue} setOpenModal={setOpenModal}/>
+      </Modal>)}
     </>
   );
 }

@@ -12,7 +12,7 @@ function TodoSearch({searchValue, setSearchValue}) {
         }}
         className="search-bar-input"
         type="text"
-        placeholder="Tarea aqui"
+        placeholder="Filter"
         value={searchValue}
       />
     </div>

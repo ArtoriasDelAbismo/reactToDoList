@@ -7,7 +7,7 @@ function TodoItem(props) {
   return (
     <div className="list-items">
       <span
-        onClick={props.onComplete}  
+        onClick={ props.onComplete }  
         className={`icon icon-check ${
           props.completed && "icon-check--completed"
         }`}
