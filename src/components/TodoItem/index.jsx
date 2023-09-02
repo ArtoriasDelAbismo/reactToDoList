@@ -12,7 +12,7 @@ function TodoItem(props) {
           props.completed && "icon-check--completed"
         }`}
       ></span>
-      <p className={`todoItem-p ${props.completed && "todoItem-p--completed"}`}>
+      <p className={`todoItem-p ${props.completed ? "todoItem-p--completed" : "todoItem-p"}`}>
         {props.text}
       </p>
       <span 
