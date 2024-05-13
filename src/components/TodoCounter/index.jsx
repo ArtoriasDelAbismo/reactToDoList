@@ -8,7 +8,7 @@ function TodoCounter(props) {
 
   return (
     <div className="title">
-      <h1>Task Manager</h1>
+      <h1>TASK MANAGER</h1>
       <h2>
         Completed: {completed} de {total}
       </h2>
